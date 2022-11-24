@@ -9,23 +9,18 @@ Convolutional Neural Network.
 
 
 def slice_spect(verbose=0, mode=None):
-    if mode == "Train":
-<<<<<<< HEAD
-        if os.path.exists('Train_Sliced_Images'):
-            return
-=======
-        # if os.path.exists('Train_Sliced_Images'):
-        #     return
->>>>>>> winnie
-        labels = []
-        image_folder = "Train_Spectogram_Images"
-        filenames = [os.path.join(image_folder, f) for f in os.listdir(image_folder)
-                     if f.endswith(".jpg")]
-        counter = 0
-        if (verbose > 0):
-            print("Slicing Spectograms ...")
-        if not os.path.exists('Train_Sliced_Images'):
-            os.makedirs('Train_Sliced_Images')
+    if os.path.exists('Train_Sliced_Images'):
+        return
+
+    labels = []
+    image_folder = "Train_Spectogram_Images"
+    filenames = [os.path.join(image_folder, f) for f in os.listdir(image_folder)
+                 if f.endswith(".jpg")]
+    counter = 0
+    if (verbose > 0):
+        print("Slicing Spectograms ...")
+    if not os.path.exists('Train_Sliced_Images'):
+        os.makedirs('Train_Sliced_Images')
         for f in filenames:
             genre_variable = re.search('Train_Spectogram_Images\\\\.*_(.+?).jpg', f).group(1)
             img = Image.open(f)

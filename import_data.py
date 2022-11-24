@@ -50,18 +50,12 @@ def create_spectrogram(verbose=0, mode=None):
             for f in file_names:
                 # import pdb
                 # pdb.set_trace()
-<<<<<<< HEAD
+
                 track_id = int(re.search('fma_small\\\\.*\\\\(.+?).mp3', f).group(1))
                 track_index = list(tracks_id_array).index(track_id)
                 if (str(tracks_genre_array[track_index, 0]) != '0'):
                     print(f)
-=======
-                track_id = int(re.search('fma_small\\.*\\(.+?).mp3', f).group(1))
-                track_index = list(tracks_id_array).index(track_id)
-                if (str(tracks_genre_array[track_index, 0]) != '0'):
-                    print
-                    f
->>>>>>> winnie
+
                     y, sr = librosa.load(f)
                     melspectrogram_array = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)
                     mel = librosa.power_to_db(melspectrogram_array)

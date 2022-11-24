@@ -62,11 +62,9 @@ model.add(Dense(32, activation="relu", kernel_initializer=initializers.he_normal
 model.add(Dense(n_classes, activation="softmax", kernel_initializer=initializers.he_normal(seed=1)))
 # Dim = (8)
 print(model.summary())
-<<<<<<< HEAD
+
 # plot_model(model, to_file="Saved_Model/Model_Architecture.jpg")
-=======
-plot_model(model, to_file="Saved_Model/Model_Architecture.jpg")
->>>>>>> winnie
+
 model.compile(loss="categorical_crossentropy", optimizer=optimizers.Adam(lr=0.0001), metrics=['accuracy'])
 pd.DataFrame(model.fit(train_x, train_y, epochs=10, verbose=1, validation_split=0.1).history).to_csv(
     "Saved_Model/training_history.csv")
